@@ -4,6 +4,8 @@ import React from "react"
 import { MdArrowDropDown } from "react-icons/md";
 import { IoIosNotifications } from "react-icons/io";
 import { IoSearchOutline } from "react-icons/io5";
+import Markets from "./Markets";
+import News from "./news/news";
 import Image from "next/image";
 
 //import { useTranslations } from "use-intl"
@@ -12,8 +14,9 @@ import Image from "next/image";
 export default function MarketOverviewPage() {
 
     return (
-        <section className="flex w-screen p-4 bg-black">
-            <div className="flex flex-row items-center w-full gap-8 text-white">
+        <div className="w-screen p-4 bg-black h-fit">
+        <section >
+            <div className="flex flex-row items-center w-full gap-8 mb-4 text-white">
 
                 <div className="flex flex-row items-center gap-4">
                     <MdArrowDropDown />
@@ -42,7 +45,12 @@ export default function MarketOverviewPage() {
                     <input type="text" placeholder="Search" className="pl-8 bg-transparent text-white h-full w-full outline-none" />
                 </div>
             </div>
+
+           
         </section>
+         <Markets />
+         <News />
+        </div>
     );
 
 }
