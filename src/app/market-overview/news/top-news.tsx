@@ -2,30 +2,37 @@
 
 import { HiOutlineSquare3Stack3D } from "react-icons/hi2";
 import { useQuery } from "@tanstack/react-query";
-import { fetchMarketNews } from "@/services/newsAPI";
 import { formatDistanceToNow } from 'date-fns';
+
+
+const fetchMarketNews = async () => {
+  const response = await fetch('/api/market-news')
+  if (!response.ok) throw new Error('Failed to fetch news')
+  const result = await response.json()
+  return result.data
+}
 
 export default function MarketOverviewPage() {
 
     const { data, isError, isLoading } = useQuery({
         queryKey: ['top-news'],
-        queryFn: fetchMarketNews
+        queryFn: fetchMarketNews,
+        staleTime: 5 * 60 * 1000, 
+        refetchInterval: 5 * 60 * 1000, 
     })
 
-
-    const formatTime = (timestamp) => {
-       
+    const formatTime = (timestamp: number) => {
         const date = new Date(timestamp * 1000);
         return formatDistanceToNow(date, { addSuffix: true });
     }
 
-    const truncateText = (text, maxLength = 40) => {
+    const truncateText = (text: string, maxLength = 60) => {
         if (text.length <= maxLength) return text;
         return text.slice(0, maxLength) + '...';
     }
 
-    if (isLoading) return <div>Loading news...</div>
-    if (isError) return <div>Error loading news</div>
+    if (isLoading) return <div className="text-white">Loading news...</div>
+    if (isError) return <div className="text-white">Error loading news</div>
 
     return (
         <section className="flex-col text-white bg-black rounded-lg">
@@ -34,8 +41,8 @@ export default function MarketOverviewPage() {
                 <HiOutlineSquare3Stack3D />
             </div>
 
-            <div className="flex flex-col">
-                {data && data.map((news, index) => (
+            <div className="flex flex-col h-[503px] overflow-y-scroll">
+                {data && data.map((news: any, index: number) => (
                     <a 
                         key={news.id || index}
                         href={news.url}
