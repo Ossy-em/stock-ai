@@ -36,3 +36,13 @@ export const fetchStockNews = async (symbol) => {
     throw error;
   }
 };
+export const fetchTopGainers = async () => {
+  const ALPHA_VANTAGE_KEY = process.env.NEXT_PUBLIC_ALPHA_VANTAGE_KEY;
+  
+  const response = await fetch(
+    `https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=${ALPHA_VANTAGE_KEY}`
+  );
+  
+  const data = await response.json();
+  return data.top_gainers.slice(0, 15); 
+}
