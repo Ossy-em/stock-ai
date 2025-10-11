@@ -122,9 +122,9 @@ export default function IndexChart({ indexes, activeIndex, onIndexClick }: Index
 
   return (
     <div className="relative space-y-3">
-      <button disabled className="opacity-40 cursor-not-allowed" title="Coming soon">
+      {/* <button disabled className="opacity-40 cursor-not-allowed" title="Coming soon">
         1W
-      </button>
+      </button> */}
       
 
       {isLimitedData && (

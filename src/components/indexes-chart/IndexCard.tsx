@@ -66,11 +66,11 @@ export default function IndexCard({ index, isActive = false, onClick }: IndexCar
       </div>
 
       <div className="ml-2.5 space-y-1">
-        <div className="text-xl font-bold text-white leading-none">
+        <div className="text-[18px] text-white leading-none">
           ${index.price.toFixed(2)}
         </div>
         
-        <div className={`flex items-center gap-1.5 ${changeColor} text-[13px] font-semibold`}>
+        <div className={`flex items-center gap-1 ${changeColor} text-[13px]`}>
           <span>
             {isPositive ? '+' : ''}{index.change.toFixed(2)}
           </span>
