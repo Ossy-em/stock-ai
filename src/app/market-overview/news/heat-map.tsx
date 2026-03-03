@@ -3,11 +3,12 @@
 import { HiOutlineSquare3Stack3D } from "react-icons/hi2";
 import { ChevronDown } from 'lucide-react';
 import Image from "next/image";
+
 export default function MarketOverviewPage() {
 
     return (
 
-        <section className="flex-col  text-white  bg-black rounded-lg">
+        <section className="flex-col h-[584px] text-white  bg-black rounded-lg">
             <div className="flex items-center justify-between h-14 px-6 py-4 bg-[#1F1F1F]">
                 <h1 className="text-[16px] semi-bold">Heat Map</h1>
                 <HiOutlineSquare3Stack3D />
