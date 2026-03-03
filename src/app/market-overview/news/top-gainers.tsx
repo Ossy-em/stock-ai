@@ -22,7 +22,7 @@ export default function TopGainers() {
     if (isError) return <div className="text-white">Error loading gainers</div>
 
     return (
-        <section className="flex-col text-white bg-black rounded-lg">
+        <section className="flex-col h-[584px] text-white bg-black rounded-lg">
             <div className="flex items-center justify-between h-14 px-6 py-4 bg-[#1F1F1F]">
                 <h1 className="text-[16px] font-semibold">Top Gainers</h1>
                 <HiOutlineSquare3Stack3D />
