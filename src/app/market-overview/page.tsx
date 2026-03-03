@@ -4,7 +4,7 @@ import React from "react"
 import { MdArrowDropDown } from "react-icons/md";
 import { IoIosNotifications } from "react-icons/io";
 import { IoSearchOutline } from "react-icons/io5";
-import Markets from "./Markets";
+// import Markets from "./Markets";
 import News from "./news/news";
 import Image from "next/image";
 
@@ -14,7 +14,7 @@ import Image from "next/image";
 export default function MarketOverviewPage() {
 
     return (
-        <div className="w-screen p-4 bg-black h-fit">
+        <div className="w-screen p-4 bg-black min-h-screen">
         <section >
             <div className="flex flex-row items-center w-full gap-8 mb-4 text-white">
 
@@ -48,7 +48,7 @@ export default function MarketOverviewPage() {
 
            
         </section>
-         <Markets />
+         {/* <Markets /> */}
          <News />
         </div>
     );
